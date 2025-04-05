@@ -1,4 +1,3 @@
-```markdown
 # opencoder
 
 ## Overview
@@ -107,6 +106,3 @@ We welcome contributions! Please follow these steps:
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-```
-
-This documentation includes information about the project structure, installation, usage, API methods, tools, logging, contribution guidelines, and licensing, aiming to provide a thorough overview for developers and users alike.
