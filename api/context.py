@@ -2,14 +2,13 @@ from typing import Dict, List # Import List as well for type hinting methods
 
 class Context():
     def __init__(self):
-        self.user_messages: List[str] = []
-        self.system_messages: List[str] = []
+        self.messages: List[str] = []
         self.files: Dict[str, str] = {}
 
     def get_everything(self) -> List[str]: # Add return type hint
         everything = []
-        everything.extend(self.user_messages)
-        everything.extend(self.system_messages)
+        everything.extend(self.messages)
+
 
         files_array = []
         # Now self.files is an actual dictionary, so .items() will work
@@ -20,19 +19,14 @@ class Context():
         return everything
     
     def serialize(self) -> str:
-        return str(self.get_everything())
+        return "\n".join(self.get_everything())
         
 
     def add_user_message(self, message: str): # Add type hint
-        self.user_messages.append(message)
+        self.messages.append(f"user: {message}")
 
     def add_system_message(self, message: str): # Add type hint
-        # Handle potential None or non-string messages gracefully
-        if message is not None:
-            self.system_messages.append(str(message))
-        else:
-            # Optionally log or handle the case where the agent gave no output
-            print("Warning: Attempted to add None as a system message.")
+        self.messages.append(f"system: {message}")
 
 
     def add_file(self, filename: str, content: str): # Add type hints
